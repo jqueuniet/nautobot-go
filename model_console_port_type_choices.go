@@ -20,19 +20,19 @@ type ConsolePortTypeChoices string
 
 // List of ConsolePortTypeChoices
 const (
-	DE_9 ConsolePortTypeChoices = "de-9"
+	DE_9  ConsolePortTypeChoices = "de-9"
 	DB_25 ConsolePortTypeChoices = "db-25"
 	RJ_11 ConsolePortTypeChoices = "rj-11"
 	RJ_12 ConsolePortTypeChoices = "rj-12"
 	RJ_45 ConsolePortTypeChoices = "rj-45"
-	USB_A ConsolePortTypeChoices = "usb-a"
-	USB_B ConsolePortTypeChoices = "usb-b"
-	USB_C ConsolePortTypeChoices = "usb-c"
-	USB_MINI_A ConsolePortTypeChoices = "usb-mini-a"
-	USB_MINI_B ConsolePortTypeChoices = "usb-mini-b"
-	USB_MICRO_A ConsolePortTypeChoices = "usb-micro-a"
-	USB_MICRO_B ConsolePortTypeChoices = "usb-micro-b"
-	OTHER ConsolePortTypeChoices = "other"
+	//USB_A ConsolePortTypeChoices = "usb-a"
+	//USB_B ConsolePortTypeChoices = "usb-b"
+	//USB_C ConsolePortTypeChoices = "usb-c"
+	//USB_MINI_A ConsolePortTypeChoices = "usb-mini-a"
+	//USB_MINI_B ConsolePortTypeChoices = "usb-mini-b"
+	//USB_MICRO_A ConsolePortTypeChoices = "usb-micro-a"
+	//USB_MICRO_B ConsolePortTypeChoices = "usb-micro-b"
+	//OTHER ConsolePortTypeChoices = "other"
 )
 
 // All allowed values of ConsolePortTypeChoices enum
@@ -130,4 +130,3 @@ func (v *NullableConsolePortTypeChoices) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

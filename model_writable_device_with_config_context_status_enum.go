@@ -20,13 +20,13 @@ type WritableDeviceWithConfigContextStatusEnum string
 
 // List of WritableDeviceWithConfigContextStatusEnum
 const (
-	ACTIVE WritableDeviceWithConfigContextStatusEnum = "active"
-	DECOMMISSIONING WritableDeviceWithConfigContextStatusEnum = "decommissioning"
-	FAILED WritableDeviceWithConfigContextStatusEnum = "failed"
+	//ACTIVE WritableDeviceWithConfigContextStatusEnum = "active"
+	//DECOMMISSIONING WritableDeviceWithConfigContextStatusEnum = "decommissioning"
+	//FAILED WritableDeviceWithConfigContextStatusEnum = "failed"
 	INVENTORY WritableDeviceWithConfigContextStatusEnum = "inventory"
-	OFFLINE WritableDeviceWithConfigContextStatusEnum = "offline"
-	PLANNED WritableDeviceWithConfigContextStatusEnum = "planned"
-	STAGED WritableDeviceWithConfigContextStatusEnum = "staged"
+	//OFFLINE WritableDeviceWithConfigContextStatusEnum = "offline"
+	//PLANNED WritableDeviceWithConfigContextStatusEnum = "planned"
+	//STAGED WritableDeviceWithConfigContextStatusEnum = "staged"
 )
 
 // All allowed values of WritableDeviceWithConfigContextStatusEnum enum
@@ -118,4 +118,3 @@ func (v *NullableWritableDeviceWithConfigContextStatusEnum) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

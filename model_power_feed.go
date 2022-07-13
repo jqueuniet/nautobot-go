@@ -17,30 +17,30 @@ import (
 
 // PowerFeed Mixin to add `status` choice field to model serializers.
 type PowerFeed struct {
-	Id string `json:"id"`
-	Url string `json:"url"`
-	PowerPanel NestedPowerPanel `json:"power_panel"`
-	Rack NullableDeviceRack `json:"rack,omitempty"`
-	Name string `json:"name"`
-	Status PowerFeedStatus `json:"status"`
-	Type *PowerFeedType `json:"type,omitempty"`
-	Supply *PowerFeedSupply `json:"supply,omitempty"`
-	Phase *PowerFeedPhase `json:"phase,omitempty"`
-	Voltage *int32 `json:"voltage,omitempty"`
-	Amperage *int32 `json:"amperage,omitempty"`
+	Id         string             `json:"id"`
+	Url        string             `json:"url"`
+	PowerPanel NestedPowerPanel   `json:"power_panel"`
+	Rack       NullableDeviceRack `json:"rack,omitempty"`
+	Name       string             `json:"name"`
+	Status     PowerFeedStatus    `json:"status"`
+	Type       *PowerFeedType     `json:"type,omitempty"`
+	Supply     *PowerFeedSupply   `json:"supply,omitempty"`
+	Phase      *PowerFeedPhase    `json:"phase,omitempty"`
+	Voltage    *int32             `json:"voltage,omitempty"`
+	Amperage   *int32             `json:"amperage,omitempty"`
 	// Maximum permissible draw (percentage)
-	MaxUtilization *int32 `json:"max_utilization,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Cable CircuitTerminationCable `json:"cable"`
-	CablePeer map[string]interface{} `json:"cable_peer"`
-	CablePeerType NullableString `json:"cable_peer_type"`
-	ConnectedEndpoint map[string]interface{} `json:"connected_endpoint"`
-	ConnectedEndpointType NullableString `json:"connected_endpoint_type"`
-	ConnectedEndpointReachable NullableBool `json:"connected_endpoint_reachable"`
-	Tags []TagSerializerField `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created string `json:"created"`
-	LastUpdated time.Time `json:"last_updated"`
+	MaxUtilization             *int32                  `json:"max_utilization,omitempty"`
+	Comments                   *string                 `json:"comments,omitempty"`
+	Cable                      CircuitTerminationCable `json:"cable"`
+	CablePeer                  map[string]interface{}  `json:"cable_peer"`
+	CablePeerType              NullableString          `json:"cable_peer_type"`
+	ConnectedEndpoint          map[string]interface{}  `json:"connected_endpoint"`
+	ConnectedEndpointType      NullableString          `json:"connected_endpoint_type"`
+	ConnectedEndpointReachable NullableBool            `json:"connected_endpoint_reachable"`
+	Tags                       []TagSerializerField    `json:"tags,omitempty"`
+	CustomFields               map[string]interface{}  `json:"custom_fields,omitempty"`
+	Created                    string                  `json:"created"`
+	LastUpdated                time.Time               `json:"last_updated"`
 	// Human friendly display value
 	Display string `json:"display"`
 }
@@ -56,11 +56,17 @@ func NewPowerFeed(id string, url string, powerPanel NestedPowerPanel, name strin
 	this.PowerPanel = powerPanel
 	this.Name = name
 	this.Status = status
-	var type_ PowerFeedType = {"value":"primary","label":"Primary"}
+	powerFeedValue := "primary"
+	powerFreeLabel := "Primary"
+	var type_ = PowerFeedType{Value: &powerFeedValue, Label: &powerFreeLabel}
 	this.Type = &type_
-	var supply PowerFeedSupply = {"value":"ac","label":"AC"}
+	powerFeedSupplyValue := "ac"
+	powerFeedSupplyLabel := "AC"
+	var supply = PowerFeedSupply{Value: &powerFeedSupplyValue, Label: &powerFeedSupplyLabel}
 	this.Supply = &supply
-	var phase PowerFeedPhase = {"value":"single-phase","label":"Single phase"}
+	powerFeedPhaseValue := "single-phase"
+	powerFeedPhaseLabel := "Single phase"
+	var phase = PowerFeedPhase{Value: &powerFeedPhaseValue, Label: &powerFeedPhaseLabel}
 	this.Phase = &phase
 	this.Cable = cable
 	this.CablePeer = cablePeer
@@ -79,11 +85,17 @@ func NewPowerFeed(id string, url string, powerPanel NestedPowerPanel, name strin
 // but it doesn't guarantee that properties required by API are set
 func NewPowerFeedWithDefaults() *PowerFeed {
 	this := PowerFeed{}
-	var type_ PowerFeedType = {"value":"primary","label":"Primary"}
+	powerFeedValue := "primary"
+	powerFreeLabel := "Primary"
+	var type_ = PowerFeedType{Value: &powerFeedValue, Label: &powerFreeLabel}
 	this.Type = &type_
-	var supply PowerFeedSupply = {"value":"ac","label":"AC"}
+	powerFeedSupplyValue := "ac"
+	powerFeedSupplyLabel := "AC"
+	var supply = PowerFeedSupply{Value: &powerFeedSupplyValue, Label: &powerFeedSupplyLabel}
 	this.Supply = &supply
-	var phase PowerFeedPhase = {"value":"single-phase","label":"Single phase"}
+	powerFeedPhaseValue := "single-phase"
+	powerFeedPhaseLabel := "Single phase"
+	var phase = PowerFeedPhase{Value: &powerFeedPhaseValue, Label: &powerFeedPhaseLabel}
 	this.Phase = &phase
 	return &this
 }
@@ -192,6 +204,7 @@ func (o *PowerFeed) HasRack() bool {
 func (o *PowerFeed) SetRack(v DeviceRack) {
 	o.Rack.Set(&v)
 }
+
 // SetRackNil sets the value for Rack to be an explicit nil
 func (o *PowerFeed) SetRackNil() {
 	o.Rack.Set(nil)
@@ -876,5 +889,3 @@ func (v *NullablePowerFeed) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

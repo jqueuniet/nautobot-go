@@ -16,16 +16,16 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
+	"time"
 )
-
 
 // UsersApiService UsersApi service
 type UsersApiService service
 
 type ApiUsersConfigRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
 }
 
@@ -44,7 +44,7 @@ Return the config_data for the currently authenticated User.
 func (a *UsersApiService) UsersConfigRetrieve(ctx context.Context) ApiUsersConfigRetrieveRequest {
 	return ApiUsersConfigRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -52,10 +52,10 @@ func (a *UsersApiService) UsersConfigRetrieve(ctx context.Context) ApiUsersConfi
 //  @return map[string]interface{}
 func (a *UsersApiService) UsersConfigRetrieveExecute(r ApiUsersConfigRetrieveRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersConfigRetrieve")
@@ -138,7 +138,7 @@ func (a *UsersApiService) UsersConfigRetrieveExecute(r ApiUsersConfigRetrieveReq
 }
 
 type ApiUsersGroupsBulkDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
 }
 
@@ -157,16 +157,16 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsBulkDestroy(ctx context.Context) ApiUsersGroupsBulkDestroyRequest {
 	return ApiUsersGroupsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *UsersApiService) UsersGroupsBulkDestroyExecute(r ApiUsersGroupsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsBulkDestroy")
@@ -240,8 +240,8 @@ func (a *UsersApiService) UsersGroupsBulkDestroyExecute(r ApiUsersGroupsBulkDest
 }
 
 type ApiUsersGroupsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
+	ctx          context.Context
+	ApiService   *UsersApiService
 	patchedGroup *PatchedGroup
 }
 
@@ -265,7 +265,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsBulkPartialUpdate(ctx context.Context) ApiUsersGroupsBulkPartialUpdateRequest {
 	return ApiUsersGroupsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -273,10 +273,10 @@ func (a *UsersApiService) UsersGroupsBulkPartialUpdate(ctx context.Context) ApiU
 //  @return Group
 func (a *UsersApiService) UsersGroupsBulkPartialUpdateExecute(r ApiUsersGroupsBulkPartialUpdateRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsBulkPartialUpdate")
@@ -361,9 +361,9 @@ func (a *UsersApiService) UsersGroupsBulkPartialUpdateExecute(r ApiUsersGroupsBu
 }
 
 type ApiUsersGroupsBulkUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	group *Group
+	group      *Group
 }
 
 func (r ApiUsersGroupsBulkUpdateRequest) Group(group Group) ApiUsersGroupsBulkUpdateRequest {
@@ -386,7 +386,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsBulkUpdate(ctx context.Context) ApiUsersGroupsBulkUpdateRequest {
 	return ApiUsersGroupsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -394,10 +394,10 @@ func (a *UsersApiService) UsersGroupsBulkUpdate(ctx context.Context) ApiUsersGro
 //  @return Group
 func (a *UsersApiService) UsersGroupsBulkUpdateExecute(r ApiUsersGroupsBulkUpdateRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsBulkUpdate")
@@ -485,9 +485,9 @@ func (a *UsersApiService) UsersGroupsBulkUpdateExecute(r ApiUsersGroupsBulkUpdat
 }
 
 type ApiUsersGroupsCreateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	group *Group
+	group      *Group
 }
 
 func (r ApiUsersGroupsCreateRequest) Group(group Group) ApiUsersGroupsCreateRequest {
@@ -510,7 +510,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsCreate(ctx context.Context) ApiUsersGroupsCreateRequest {
 	return ApiUsersGroupsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -518,10 +518,10 @@ func (a *UsersApiService) UsersGroupsCreate(ctx context.Context) ApiUsersGroupsC
 //  @return Group
 func (a *UsersApiService) UsersGroupsCreateExecute(r ApiUsersGroupsCreateRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsCreate")
@@ -609,9 +609,9 @@ func (a *UsersApiService) UsersGroupsCreateExecute(r ApiUsersGroupsCreateRequest
 }
 
 type ApiUsersGroupsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id int32
+	id         int32
 }
 
 func (r ApiUsersGroupsDestroyRequest) Execute() (*http.Response, error) {
@@ -630,17 +630,17 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsDestroy(ctx context.Context, id int32) ApiUsersGroupsDestroyRequest {
 	return ApiUsersGroupsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *UsersApiService) UsersGroupsDestroyExecute(r ApiUsersGroupsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsDestroy")
@@ -715,31 +715,31 @@ func (a *UsersApiService) UsersGroupsDestroyExecute(r ApiUsersGroupsDestroyReque
 }
 
 type ApiUsersGroupsListRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id *[]int32
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	limit *int32
-	name *[]string
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIre *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNire *[]string
-	nameNisw *[]string
-	nameNre *[]string
-	nameRe *[]string
-	offset *int32
-	q *string
+	id         *[]int32
+	idGt       *[]int32
+	idGte      *[]int32
+	idLt       *[]int32
+	idLte      *[]int32
+	idN        *[]int32
+	limit      *int32
+	name       *[]string
+	nameIc     *[]string
+	nameIe     *[]string
+	nameIew    *[]string
+	nameIre    *[]string
+	nameIsw    *[]string
+	nameN      *[]string
+	nameNic    *[]string
+	nameNie    *[]string
+	nameNiew   *[]string
+	nameNire   *[]string
+	nameNisw   *[]string
+	nameNre    *[]string
+	nameRe     *[]string
+	offset     *int32
+	q          *string
 }
 
 func (r ApiUsersGroupsListRequest) Id(id []int32) ApiUsersGroupsListRequest {
@@ -875,7 +875,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsList(ctx context.Context) ApiUsersGroupsListRequest {
 	return ApiUsersGroupsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -883,10 +883,10 @@ func (a *UsersApiService) UsersGroupsList(ctx context.Context) ApiUsersGroupsLis
 //  @return PaginatedGroupList
 func (a *UsersApiService) UsersGroupsListExecute(r ApiUsersGroupsListRequest) (*PaginatedGroupList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedGroupList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedGroupList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsList")
@@ -1198,9 +1198,9 @@ func (a *UsersApiService) UsersGroupsListExecute(r ApiUsersGroupsListRequest) (*
 }
 
 type ApiUsersGroupsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	id int32
+	ctx          context.Context
+	ApiService   *UsersApiService
+	id           int32
 	patchedGroup *PatchedGroup
 }
 
@@ -1225,8 +1225,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsPartialUpdate(ctx context.Context, id int32) ApiUsersGroupsPartialUpdateRequest {
 	return ApiUsersGroupsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1234,10 +1234,10 @@ func (a *UsersApiService) UsersGroupsPartialUpdate(ctx context.Context, id int32
 //  @return Group
 func (a *UsersApiService) UsersGroupsPartialUpdateExecute(r ApiUsersGroupsPartialUpdateRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsPartialUpdate")
@@ -1323,9 +1323,9 @@ func (a *UsersApiService) UsersGroupsPartialUpdateExecute(r ApiUsersGroupsPartia
 }
 
 type ApiUsersGroupsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id int32
+	id         int32
 }
 
 func (r ApiUsersGroupsRetrieveRequest) Execute() (*Group, *http.Response, error) {
@@ -1344,8 +1344,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsRetrieve(ctx context.Context, id int32) ApiUsersGroupsRetrieveRequest {
 	return ApiUsersGroupsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1353,10 +1353,10 @@ func (a *UsersApiService) UsersGroupsRetrieve(ctx context.Context, id int32) Api
 //  @return Group
 func (a *UsersApiService) UsersGroupsRetrieveExecute(r ApiUsersGroupsRetrieveRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsRetrieve")
@@ -1440,10 +1440,10 @@ func (a *UsersApiService) UsersGroupsRetrieveExecute(r ApiUsersGroupsRetrieveReq
 }
 
 type ApiUsersGroupsUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id int32
-	group *Group
+	id         int32
+	group      *Group
 }
 
 func (r ApiUsersGroupsUpdateRequest) Group(group Group) ApiUsersGroupsUpdateRequest {
@@ -1467,8 +1467,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersGroupsUpdate(ctx context.Context, id int32) ApiUsersGroupsUpdateRequest {
 	return ApiUsersGroupsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1476,10 +1476,10 @@ func (a *UsersApiService) UsersGroupsUpdate(ctx context.Context, id int32) ApiUs
 //  @return Group
 func (a *UsersApiService) UsersGroupsUpdateExecute(r ApiUsersGroupsUpdateRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersGroupsUpdate")
@@ -1568,7 +1568,7 @@ func (a *UsersApiService) UsersGroupsUpdateExecute(r ApiUsersGroupsUpdateRequest
 }
 
 type ApiUsersPermissionsBulkDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
 }
 
@@ -1587,16 +1587,16 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsBulkDestroy(ctx context.Context) ApiUsersPermissionsBulkDestroyRequest {
 	return ApiUsersPermissionsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *UsersApiService) UsersPermissionsBulkDestroyExecute(r ApiUsersPermissionsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsBulkDestroy")
@@ -1670,8 +1670,8 @@ func (a *UsersApiService) UsersPermissionsBulkDestroyExecute(r ApiUsersPermissio
 }
 
 type ApiUsersPermissionsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
+	ctx                             context.Context
+	ApiService                      *UsersApiService
 	patchedWritableObjectPermission *PatchedWritableObjectPermission
 }
 
@@ -1695,7 +1695,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsBulkPartialUpdate(ctx context.Context) ApiUsersPermissionsBulkPartialUpdateRequest {
 	return ApiUsersPermissionsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1703,10 +1703,10 @@ func (a *UsersApiService) UsersPermissionsBulkPartialUpdate(ctx context.Context)
 //  @return ObjectPermission
 func (a *UsersApiService) UsersPermissionsBulkPartialUpdateExecute(r ApiUsersPermissionsBulkPartialUpdateRequest) (*ObjectPermission, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ObjectPermission
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ObjectPermission
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsBulkPartialUpdate")
@@ -1791,8 +1791,8 @@ func (a *UsersApiService) UsersPermissionsBulkPartialUpdateExecute(r ApiUsersPer
 }
 
 type ApiUsersPermissionsBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
+	ctx                      context.Context
+	ApiService               *UsersApiService
 	writableObjectPermission *WritableObjectPermission
 }
 
@@ -1816,7 +1816,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsBulkUpdate(ctx context.Context) ApiUsersPermissionsBulkUpdateRequest {
 	return ApiUsersPermissionsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1824,10 +1824,10 @@ func (a *UsersApiService) UsersPermissionsBulkUpdate(ctx context.Context) ApiUse
 //  @return ObjectPermission
 func (a *UsersApiService) UsersPermissionsBulkUpdateExecute(r ApiUsersPermissionsBulkUpdateRequest) (*ObjectPermission, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ObjectPermission
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ObjectPermission
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsBulkUpdate")
@@ -1915,8 +1915,8 @@ func (a *UsersApiService) UsersPermissionsBulkUpdateExecute(r ApiUsersPermission
 }
 
 type ApiUsersPermissionsCreateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
+	ctx                      context.Context
+	ApiService               *UsersApiService
 	writableObjectPermission *WritableObjectPermission
 }
 
@@ -1940,7 +1940,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsCreate(ctx context.Context) ApiUsersPermissionsCreateRequest {
 	return ApiUsersPermissionsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1948,10 +1948,10 @@ func (a *UsersApiService) UsersPermissionsCreate(ctx context.Context) ApiUsersPe
 //  @return ObjectPermission
 func (a *UsersApiService) UsersPermissionsCreateExecute(r ApiUsersPermissionsCreateRequest) (*ObjectPermission, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ObjectPermission
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ObjectPermission
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsCreate")
@@ -2039,9 +2039,9 @@ func (a *UsersApiService) UsersPermissionsCreateExecute(r ApiUsersPermissionsCre
 }
 
 type ApiUsersPermissionsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id string
+	id         string
 }
 
 func (r ApiUsersPermissionsDestroyRequest) Execute() (*http.Response, error) {
@@ -2060,17 +2060,17 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsDestroy(ctx context.Context, id string) ApiUsersPermissionsDestroyRequest {
 	return ApiUsersPermissionsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *UsersApiService) UsersPermissionsDestroyExecute(r ApiUsersPermissionsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsDestroy")
@@ -2145,49 +2145,49 @@ func (a *UsersApiService) UsersPermissionsDestroyExecute(r ApiUsersPermissionsDe
 }
 
 type ApiUsersPermissionsListRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	enabled *bool
-	group *[]string
-	groupN *[]string
-	groupId *[]int32
-	groupIdN *[]int32
-	id *[]string
-	idIc *[]string
-	idIe *[]string
-	idIew *[]string
-	idIre *[]string
-	idIsw *[]string
-	idN *[]string
-	idNic *[]string
-	idNie *[]string
-	idNiew *[]string
-	idNire *[]string
-	idNisw *[]string
-	idNre *[]string
-	idRe *[]string
-	limit *int32
-	name *[]string
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIre *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNire *[]string
-	nameNisw *[]string
-	nameNre *[]string
-	nameRe *[]string
-	objectTypes *[]int32
+	ctx          context.Context
+	ApiService   *UsersApiService
+	enabled      *bool
+	group        *[]string
+	groupN       *[]string
+	groupId      *[]int32
+	groupIdN     *[]int32
+	id           *[]string
+	idIc         *[]string
+	idIe         *[]string
+	idIew        *[]string
+	idIre        *[]string
+	idIsw        *[]string
+	idN          *[]string
+	idNic        *[]string
+	idNie        *[]string
+	idNiew       *[]string
+	idNire       *[]string
+	idNisw       *[]string
+	idNre        *[]string
+	idRe         *[]string
+	limit        *int32
+	name         *[]string
+	nameIc       *[]string
+	nameIe       *[]string
+	nameIew      *[]string
+	nameIre      *[]string
+	nameIsw      *[]string
+	nameN        *[]string
+	nameNic      *[]string
+	nameNie      *[]string
+	nameNiew     *[]string
+	nameNire     *[]string
+	nameNisw     *[]string
+	nameNre      *[]string
+	nameRe       *[]string
+	objectTypes  *[]int32
 	objectTypesN *[]int32
-	offset *int32
-	user *[]string
-	userN *[]string
-	userId *[]string
-	userIdN *[]string
+	offset       *int32
+	user         *[]string
+	userN        *[]string
+	userId       *[]string
+	userIdN      *[]string
 }
 
 func (r ApiUsersPermissionsListRequest) Enabled(enabled bool) ApiUsersPermissionsListRequest {
@@ -2420,7 +2420,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsList(ctx context.Context) ApiUsersPermissionsListRequest {
 	return ApiUsersPermissionsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -2428,10 +2428,10 @@ func (a *UsersApiService) UsersPermissionsList(ctx context.Context) ApiUsersPerm
 //  @return PaginatedObjectPermissionList
 func (a *UsersApiService) UsersPermissionsListExecute(r ApiUsersPermissionsListRequest) (*PaginatedObjectPermissionList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedObjectPermissionList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedObjectPermissionList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsList")
@@ -2941,9 +2941,9 @@ func (a *UsersApiService) UsersPermissionsListExecute(r ApiUsersPermissionsListR
 }
 
 type ApiUsersPermissionsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	id string
+	ctx                             context.Context
+	ApiService                      *UsersApiService
+	id                              string
 	patchedWritableObjectPermission *PatchedWritableObjectPermission
 }
 
@@ -2968,8 +2968,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsPartialUpdate(ctx context.Context, id string) ApiUsersPermissionsPartialUpdateRequest {
 	return ApiUsersPermissionsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2977,10 +2977,10 @@ func (a *UsersApiService) UsersPermissionsPartialUpdate(ctx context.Context, id 
 //  @return ObjectPermission
 func (a *UsersApiService) UsersPermissionsPartialUpdateExecute(r ApiUsersPermissionsPartialUpdateRequest) (*ObjectPermission, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ObjectPermission
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ObjectPermission
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsPartialUpdate")
@@ -3066,9 +3066,9 @@ func (a *UsersApiService) UsersPermissionsPartialUpdateExecute(r ApiUsersPermiss
 }
 
 type ApiUsersPermissionsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id string
+	id         string
 }
 
 func (r ApiUsersPermissionsRetrieveRequest) Execute() (*ObjectPermission, *http.Response, error) {
@@ -3087,8 +3087,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsRetrieve(ctx context.Context, id string) ApiUsersPermissionsRetrieveRequest {
 	return ApiUsersPermissionsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3096,10 +3096,10 @@ func (a *UsersApiService) UsersPermissionsRetrieve(ctx context.Context, id strin
 //  @return ObjectPermission
 func (a *UsersApiService) UsersPermissionsRetrieveExecute(r ApiUsersPermissionsRetrieveRequest) (*ObjectPermission, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ObjectPermission
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ObjectPermission
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsRetrieve")
@@ -3183,9 +3183,9 @@ func (a *UsersApiService) UsersPermissionsRetrieveExecute(r ApiUsersPermissionsR
 }
 
 type ApiUsersPermissionsUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	id string
+	ctx                      context.Context
+	ApiService               *UsersApiService
+	id                       string
 	writableObjectPermission *WritableObjectPermission
 }
 
@@ -3210,8 +3210,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersPermissionsUpdate(ctx context.Context, id string) ApiUsersPermissionsUpdateRequest {
 	return ApiUsersPermissionsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3219,10 +3219,10 @@ func (a *UsersApiService) UsersPermissionsUpdate(ctx context.Context, id string)
 //  @return ObjectPermission
 func (a *UsersApiService) UsersPermissionsUpdateExecute(r ApiUsersPermissionsUpdateRequest) (*ObjectPermission, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ObjectPermission
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ObjectPermission
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPermissionsUpdate")
@@ -3311,7 +3311,7 @@ func (a *UsersApiService) UsersPermissionsUpdateExecute(r ApiUsersPermissionsUpd
 }
 
 type ApiUsersTokensBulkDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
 }
 
@@ -3330,16 +3330,16 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensBulkDestroy(ctx context.Context) ApiUsersTokensBulkDestroyRequest {
 	return ApiUsersTokensBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *UsersApiService) UsersTokensBulkDestroyExecute(r ApiUsersTokensBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensBulkDestroy")
@@ -3413,8 +3413,8 @@ func (a *UsersApiService) UsersTokensBulkDestroyExecute(r ApiUsersTokensBulkDest
 }
 
 type ApiUsersTokensBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
+	ctx          context.Context
+	ApiService   *UsersApiService
 	patchedToken *PatchedToken
 }
 
@@ -3438,7 +3438,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensBulkPartialUpdate(ctx context.Context) ApiUsersTokensBulkPartialUpdateRequest {
 	return ApiUsersTokensBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -3446,10 +3446,10 @@ func (a *UsersApiService) UsersTokensBulkPartialUpdate(ctx context.Context) ApiU
 //  @return Token
 func (a *UsersApiService) UsersTokensBulkPartialUpdateExecute(r ApiUsersTokensBulkPartialUpdateRequest) (*Token, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Token
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Token
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensBulkPartialUpdate")
@@ -3534,9 +3534,9 @@ func (a *UsersApiService) UsersTokensBulkPartialUpdateExecute(r ApiUsersTokensBu
 }
 
 type ApiUsersTokensBulkUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	token *Token
+	token      *Token
 }
 
 func (r ApiUsersTokensBulkUpdateRequest) Token(token Token) ApiUsersTokensBulkUpdateRequest {
@@ -3559,7 +3559,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensBulkUpdate(ctx context.Context) ApiUsersTokensBulkUpdateRequest {
 	return ApiUsersTokensBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -3567,10 +3567,10 @@ func (a *UsersApiService) UsersTokensBulkUpdate(ctx context.Context) ApiUsersTok
 //  @return Token
 func (a *UsersApiService) UsersTokensBulkUpdateExecute(r ApiUsersTokensBulkUpdateRequest) (*Token, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Token
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Token
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensBulkUpdate")
@@ -3655,9 +3655,9 @@ func (a *UsersApiService) UsersTokensBulkUpdateExecute(r ApiUsersTokensBulkUpdat
 }
 
 type ApiUsersTokensCreateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	token *Token
+	token      *Token
 }
 
 func (r ApiUsersTokensCreateRequest) Token(token Token) ApiUsersTokensCreateRequest {
@@ -3680,7 +3680,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensCreate(ctx context.Context) ApiUsersTokensCreateRequest {
 	return ApiUsersTokensCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -3688,10 +3688,10 @@ func (a *UsersApiService) UsersTokensCreate(ctx context.Context) ApiUsersTokensC
 //  @return Token
 func (a *UsersApiService) UsersTokensCreateExecute(r ApiUsersTokensCreateRequest) (*Token, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Token
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Token
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensCreate")
@@ -3776,9 +3776,9 @@ func (a *UsersApiService) UsersTokensCreateExecute(r ApiUsersTokensCreateRequest
 }
 
 type ApiUsersTokensDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id string
+	id         string
 }
 
 func (r ApiUsersTokensDestroyRequest) Execute() (*http.Response, error) {
@@ -3797,17 +3797,17 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensDestroy(ctx context.Context, id string) ApiUsersTokensDestroyRequest {
 	return ApiUsersTokensDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *UsersApiService) UsersTokensDestroyExecute(r ApiUsersTokensDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensDestroy")
@@ -3882,51 +3882,51 @@ func (a *UsersApiService) UsersTokensDestroyExecute(r ApiUsersTokensDestroyReque
 }
 
 type ApiUsersTokensListRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	created *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	expires *[]time.Time
-	expiresGt *[]time.Time
-	expiresGte *[]time.Time
-	expiresLt *[]time.Time
-	expiresLte *[]time.Time
-	expiresN *[]time.Time
-	id *[]string
-	idIc *[]string
-	idIe *[]string
-	idIew *[]string
-	idIre *[]string
-	idIsw *[]string
-	idN *[]string
-	idNic *[]string
-	idNie *[]string
-	idNiew *[]string
-	idNire *[]string
-	idNisw *[]string
-	idNre *[]string
-	idRe *[]string
-	key *[]string
-	keyIc *[]string
-	keyIe *[]string
-	keyIew *[]string
-	keyIre *[]string
-	keyIsw *[]string
-	keyN *[]string
-	keyNic *[]string
-	keyNie *[]string
-	keyNiew *[]string
-	keyNire *[]string
-	keyNisw *[]string
-	keyNre *[]string
-	keyRe *[]string
-	limit *int32
-	offset *int32
-	q *string
+	ctx          context.Context
+	ApiService   *UsersApiService
+	created      *[]time.Time
+	createdGt    *[]time.Time
+	createdGte   *[]time.Time
+	createdLt    *[]time.Time
+	createdLte   *[]time.Time
+	createdN     *[]time.Time
+	expires      *[]time.Time
+	expiresGt    *[]time.Time
+	expiresGte   *[]time.Time
+	expiresLt    *[]time.Time
+	expiresLte   *[]time.Time
+	expiresN     *[]time.Time
+	id           *[]string
+	idIc         *[]string
+	idIe         *[]string
+	idIew        *[]string
+	idIre        *[]string
+	idIsw        *[]string
+	idN          *[]string
+	idNic        *[]string
+	idNie        *[]string
+	idNiew       *[]string
+	idNire       *[]string
+	idNisw       *[]string
+	idNre        *[]string
+	idRe         *[]string
+	key          *[]string
+	keyIc        *[]string
+	keyIe        *[]string
+	keyIew       *[]string
+	keyIre       *[]string
+	keyIsw       *[]string
+	keyN         *[]string
+	keyNic       *[]string
+	keyNie       *[]string
+	keyNiew      *[]string
+	keyNire      *[]string
+	keyNisw      *[]string
+	keyNre       *[]string
+	keyRe        *[]string
+	limit        *int32
+	offset       *int32
+	q            *string
 	writeEnabled *bool
 }
 
@@ -4168,7 +4168,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensList(ctx context.Context) ApiUsersTokensListRequest {
 	return ApiUsersTokensListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -4176,10 +4176,10 @@ func (a *UsersApiService) UsersTokensList(ctx context.Context) ApiUsersTokensLis
 //  @return PaginatedTokenList
 func (a *UsersApiService) UsersTokensListExecute(r ApiUsersTokensListRequest) (*PaginatedTokenList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedTokenList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedTokenList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensList")
@@ -4714,9 +4714,9 @@ func (a *UsersApiService) UsersTokensListExecute(r ApiUsersTokensListRequest) (*
 }
 
 type ApiUsersTokensPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	id string
+	ctx          context.Context
+	ApiService   *UsersApiService
+	id           string
 	patchedToken *PatchedToken
 }
 
@@ -4741,8 +4741,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensPartialUpdate(ctx context.Context, id string) ApiUsersTokensPartialUpdateRequest {
 	return ApiUsersTokensPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -4750,10 +4750,10 @@ func (a *UsersApiService) UsersTokensPartialUpdate(ctx context.Context, id strin
 //  @return Token
 func (a *UsersApiService) UsersTokensPartialUpdateExecute(r ApiUsersTokensPartialUpdateRequest) (*Token, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Token
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Token
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensPartialUpdate")
@@ -4839,9 +4839,9 @@ func (a *UsersApiService) UsersTokensPartialUpdateExecute(r ApiUsersTokensPartia
 }
 
 type ApiUsersTokensRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id string
+	id         string
 }
 
 func (r ApiUsersTokensRetrieveRequest) Execute() (*Token, *http.Response, error) {
@@ -4860,8 +4860,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensRetrieve(ctx context.Context, id string) ApiUsersTokensRetrieveRequest {
 	return ApiUsersTokensRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -4869,10 +4869,10 @@ func (a *UsersApiService) UsersTokensRetrieve(ctx context.Context, id string) Ap
 //  @return Token
 func (a *UsersApiService) UsersTokensRetrieveExecute(r ApiUsersTokensRetrieveRequest) (*Token, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Token
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Token
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensRetrieve")
@@ -4956,10 +4956,10 @@ func (a *UsersApiService) UsersTokensRetrieveExecute(r ApiUsersTokensRetrieveReq
 }
 
 type ApiUsersTokensUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id string
-	token *Token
+	id         string
+	token      *Token
 }
 
 func (r ApiUsersTokensUpdateRequest) Token(token Token) ApiUsersTokensUpdateRequest {
@@ -4983,8 +4983,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersTokensUpdate(ctx context.Context, id string) ApiUsersTokensUpdateRequest {
 	return ApiUsersTokensUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -4992,10 +4992,10 @@ func (a *UsersApiService) UsersTokensUpdate(ctx context.Context, id string) ApiU
 //  @return Token
 func (a *UsersApiService) UsersTokensUpdateExecute(r ApiUsersTokensUpdateRequest) (*Token, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Token
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Token
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersTokensUpdate")
@@ -5081,7 +5081,7 @@ func (a *UsersApiService) UsersTokensUpdateExecute(r ApiUsersTokensUpdateRequest
 }
 
 type ApiUsersUsersBulkDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
 }
 
@@ -5100,16 +5100,16 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersBulkDestroy(ctx context.Context) ApiUsersUsersBulkDestroyRequest {
 	return ApiUsersUsersBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *UsersApiService) UsersUsersBulkDestroyExecute(r ApiUsersUsersBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersBulkDestroy")
@@ -5183,8 +5183,8 @@ func (a *UsersApiService) UsersUsersBulkDestroyExecute(r ApiUsersUsersBulkDestro
 }
 
 type ApiUsersUsersBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
+	ctx                 context.Context
+	ApiService          *UsersApiService
 	patchedWritableUser *PatchedWritableUser
 }
 
@@ -5208,7 +5208,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersBulkPartialUpdate(ctx context.Context) ApiUsersUsersBulkPartialUpdateRequest {
 	return ApiUsersUsersBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -5216,10 +5216,10 @@ func (a *UsersApiService) UsersUsersBulkPartialUpdate(ctx context.Context) ApiUs
 //  @return User
 func (a *UsersApiService) UsersUsersBulkPartialUpdateExecute(r ApiUsersUsersBulkPartialUpdateRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersBulkPartialUpdate")
@@ -5304,8 +5304,8 @@ func (a *UsersApiService) UsersUsersBulkPartialUpdateExecute(r ApiUsersUsersBulk
 }
 
 type ApiUsersUsersBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
+	ctx          context.Context
+	ApiService   *UsersApiService
 	writableUser *WritableUser
 }
 
@@ -5329,7 +5329,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersBulkUpdate(ctx context.Context) ApiUsersUsersBulkUpdateRequest {
 	return ApiUsersUsersBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -5337,10 +5337,10 @@ func (a *UsersApiService) UsersUsersBulkUpdate(ctx context.Context) ApiUsersUser
 //  @return User
 func (a *UsersApiService) UsersUsersBulkUpdateExecute(r ApiUsersUsersBulkUpdateRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersBulkUpdate")
@@ -5428,8 +5428,8 @@ func (a *UsersApiService) UsersUsersBulkUpdateExecute(r ApiUsersUsersBulkUpdateR
 }
 
 type ApiUsersUsersCreateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
+	ctx          context.Context
+	ApiService   *UsersApiService
 	writableUser *WritableUser
 }
 
@@ -5453,7 +5453,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersCreate(ctx context.Context) ApiUsersUsersCreateRequest {
 	return ApiUsersUsersCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -5461,10 +5461,10 @@ func (a *UsersApiService) UsersUsersCreate(ctx context.Context) ApiUsersUsersCre
 //  @return User
 func (a *UsersApiService) UsersUsersCreateExecute(r ApiUsersUsersCreateRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersCreate")
@@ -5552,9 +5552,9 @@ func (a *UsersApiService) UsersUsersCreateExecute(r ApiUsersUsersCreateRequest) 
 }
 
 type ApiUsersUsersDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id string
+	id         string
 }
 
 func (r ApiUsersUsersDestroyRequest) Execute() (*http.Response, error) {
@@ -5573,17 +5573,17 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersDestroy(ctx context.Context, id string) ApiUsersUsersDestroyRequest {
 	return ApiUsersUsersDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *UsersApiService) UsersUsersDestroyExecute(r ApiUsersUsersDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersDestroy")
@@ -5658,87 +5658,87 @@ func (a *UsersApiService) UsersUsersDestroyExecute(r ApiUsersUsersDestroyRequest
 }
 
 type ApiUsersUsersListRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	email *[]string
-	emailIc *[]string
-	emailIe *[]string
-	emailIew *[]string
-	emailIre *[]string
-	emailIsw *[]string
-	emailN *[]string
-	emailNic *[]string
-	emailNie *[]string
-	emailNiew *[]string
-	emailNire *[]string
-	emailNisw *[]string
-	emailNre *[]string
-	emailRe *[]string
-	firstName *[]string
-	firstNameIc *[]string
-	firstNameIe *[]string
-	firstNameIew *[]string
-	firstNameIre *[]string
-	firstNameIsw *[]string
-	firstNameN *[]string
-	firstNameNic *[]string
-	firstNameNie *[]string
+	ctx           context.Context
+	ApiService    *UsersApiService
+	email         *[]string
+	emailIc       *[]string
+	emailIe       *[]string
+	emailIew      *[]string
+	emailIre      *[]string
+	emailIsw      *[]string
+	emailN        *[]string
+	emailNic      *[]string
+	emailNie      *[]string
+	emailNiew     *[]string
+	emailNire     *[]string
+	emailNisw     *[]string
+	emailNre      *[]string
+	emailRe       *[]string
+	firstName     *[]string
+	firstNameIc   *[]string
+	firstNameIe   *[]string
+	firstNameIew  *[]string
+	firstNameIre  *[]string
+	firstNameIsw  *[]string
+	firstNameN    *[]string
+	firstNameNic  *[]string
+	firstNameNie  *[]string
 	firstNameNiew *[]string
 	firstNameNire *[]string
 	firstNameNisw *[]string
-	firstNameNre *[]string
-	firstNameRe *[]string
-	group *[]string
-	groupN *[]string
-	groupId *[]int32
-	groupIdN *[]int32
-	id *[]string
-	idIc *[]string
-	idIe *[]string
-	idIew *[]string
-	idIre *[]string
-	idIsw *[]string
-	idN *[]string
-	idNic *[]string
-	idNie *[]string
-	idNiew *[]string
-	idNire *[]string
-	idNisw *[]string
-	idNre *[]string
-	idRe *[]string
-	isActive *bool
-	isStaff *bool
-	lastName *[]string
-	lastNameIc *[]string
-	lastNameIe *[]string
-	lastNameIew *[]string
-	lastNameIre *[]string
-	lastNameIsw *[]string
-	lastNameN *[]string
-	lastNameNic *[]string
-	lastNameNie *[]string
-	lastNameNiew *[]string
-	lastNameNire *[]string
-	lastNameNisw *[]string
-	lastNameNre *[]string
-	lastNameRe *[]string
-	limit *int32
-	offset *int32
-	q *string
-	username *[]string
-	usernameIc *[]string
-	usernameIe *[]string
-	usernameIew *[]string
-	usernameIre *[]string
-	usernameIsw *[]string
-	usernameN *[]string
-	usernameNic *[]string
-	usernameNie *[]string
-	usernameNiew *[]string
-	usernameNire *[]string
-	usernameNisw *[]string
-	usernameNre *[]string
-	usernameRe *[]string
+	firstNameNre  *[]string
+	firstNameRe   *[]string
+	group         *[]string
+	groupN        *[]string
+	groupId       *[]int32
+	groupIdN      *[]int32
+	id            *[]string
+	idIc          *[]string
+	idIe          *[]string
+	idIew         *[]string
+	idIre         *[]string
+	idIsw         *[]string
+	idN           *[]string
+	idNic         *[]string
+	idNie         *[]string
+	idNiew        *[]string
+	idNire        *[]string
+	idNisw        *[]string
+	idNre         *[]string
+	idRe          *[]string
+	isActive      *bool
+	isStaff       *bool
+	lastName      *[]string
+	lastNameIc    *[]string
+	lastNameIe    *[]string
+	lastNameIew   *[]string
+	lastNameIre   *[]string
+	lastNameIsw   *[]string
+	lastNameN     *[]string
+	lastNameNic   *[]string
+	lastNameNie   *[]string
+	lastNameNiew  *[]string
+	lastNameNire  *[]string
+	lastNameNisw  *[]string
+	lastNameNre   *[]string
+	lastNameRe    *[]string
+	limit         *int32
+	offset        *int32
+	q             *string
+	username      *[]string
+	usernameIc    *[]string
+	usernameIe    *[]string
+	usernameIew   *[]string
+	usernameIre   *[]string
+	usernameIsw   *[]string
+	usernameN     *[]string
+	usernameNic   *[]string
+	usernameNie   *[]string
+	usernameNiew  *[]string
+	usernameNire  *[]string
+	usernameNisw  *[]string
+	usernameNre   *[]string
+	usernameRe    *[]string
 }
 
 func (r ApiUsersUsersListRequest) Email(email []string) ApiUsersUsersListRequest {
@@ -6158,7 +6158,7 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersList(ctx context.Context) ApiUsersUsersListRequest {
 	return ApiUsersUsersListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -6166,10 +6166,10 @@ func (a *UsersApiService) UsersUsersList(ctx context.Context) ApiUsersUsersListR
 //  @return PaginatedUserList
 func (a *UsersApiService) UsersUsersListExecute(r ApiUsersUsersListRequest) (*PaginatedUserList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedUserList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedUserList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersList")
@@ -7081,9 +7081,9 @@ func (a *UsersApiService) UsersUsersListExecute(r ApiUsersUsersListRequest) (*Pa
 }
 
 type ApiUsersUsersPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	id string
+	ctx                 context.Context
+	ApiService          *UsersApiService
+	id                  string
 	patchedWritableUser *PatchedWritableUser
 }
 
@@ -7108,8 +7108,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersPartialUpdate(ctx context.Context, id string) ApiUsersUsersPartialUpdateRequest {
 	return ApiUsersUsersPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -7117,10 +7117,10 @@ func (a *UsersApiService) UsersUsersPartialUpdate(ctx context.Context, id string
 //  @return User
 func (a *UsersApiService) UsersUsersPartialUpdateExecute(r ApiUsersUsersPartialUpdateRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersPartialUpdate")
@@ -7206,9 +7206,9 @@ func (a *UsersApiService) UsersUsersPartialUpdateExecute(r ApiUsersUsersPartialU
 }
 
 type ApiUsersUsersRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersApiService
-	id string
+	id         string
 }
 
 func (r ApiUsersUsersRetrieveRequest) Execute() (*User, *http.Response, error) {
@@ -7227,8 +7227,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersRetrieve(ctx context.Context, id string) ApiUsersUsersRetrieveRequest {
 	return ApiUsersUsersRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -7236,10 +7236,10 @@ func (a *UsersApiService) UsersUsersRetrieve(ctx context.Context, id string) Api
 //  @return User
 func (a *UsersApiService) UsersUsersRetrieveExecute(r ApiUsersUsersRetrieveRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersRetrieve")
@@ -7323,9 +7323,9 @@ func (a *UsersApiService) UsersUsersRetrieveExecute(r ApiUsersUsersRetrieveReque
 }
 
 type ApiUsersUsersUpdateRequest struct {
-	ctx context.Context
-	ApiService *UsersApiService
-	id string
+	ctx          context.Context
+	ApiService   *UsersApiService
+	id           string
 	writableUser *WritableUser
 }
 
@@ -7350,8 +7350,8 @@ Extend DRF's ModelViewSet to support bulk update and delete functions.
 func (a *UsersApiService) UsersUsersUpdate(ctx context.Context, id string) ApiUsersUsersUpdateRequest {
 	return ApiUsersUsersUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -7359,10 +7359,10 @@ func (a *UsersApiService) UsersUsersUpdate(ctx context.Context, id string) ApiUs
 //  @return User
 func (a *UsersApiService) UsersUsersUpdateExecute(r ApiUsersUsersUpdateRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *User
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUsersUpdate")

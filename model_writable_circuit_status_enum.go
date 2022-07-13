@@ -20,11 +20,11 @@ type WritableCircuitStatusEnum string
 
 // List of WritableCircuitStatusEnum
 const (
-	ACTIVE WritableCircuitStatusEnum = "active"
+	//ACTIVE WritableCircuitStatusEnum = "active"
 	DECOMMISSIONED WritableCircuitStatusEnum = "decommissioned"
 	DEPROVISIONING WritableCircuitStatusEnum = "deprovisioning"
-	OFFLINE WritableCircuitStatusEnum = "offline"
-	PLANNED WritableCircuitStatusEnum = "planned"
+	//OFFLINE WritableCircuitStatusEnum = "offline"
+	//PLANNED WritableCircuitStatusEnum = "planned"
 	PROVISIONING WritableCircuitStatusEnum = "provisioning"
 )
 
@@ -116,4 +116,3 @@ func (v *NullableWritableCircuitStatusEnum) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

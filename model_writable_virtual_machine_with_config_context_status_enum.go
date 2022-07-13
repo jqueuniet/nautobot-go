@@ -20,11 +20,11 @@ type WritableVirtualMachineWithConfigContextStatusEnum string
 
 // List of WritableVirtualMachineWithConfigContextStatusEnum
 const (
-	ACTIVE WritableVirtualMachineWithConfigContextStatusEnum = "active"
-	DECOMMISSIONING WritableVirtualMachineWithConfigContextStatusEnum = "decommissioning"
-	FAILED WritableVirtualMachineWithConfigContextStatusEnum = "failed"
+	//ACTIVE WritableVirtualMachineWithConfigContextStatusEnum = "active"
+	//DECOMMISSIONING WritableVirtualMachineWithConfigContextStatusEnum = "decommissioning"
+	//FAILED WritableVirtualMachineWithConfigContextStatusEnum = "failed"
 	OFFLINE WritableVirtualMachineWithConfigContextStatusEnum = "offline"
-	PLANNED WritableVirtualMachineWithConfigContextStatusEnum = "planned"
+	//PLANNED WritableVirtualMachineWithConfigContextStatusEnum = "planned"
 	STAGED WritableVirtualMachineWithConfigContextStatusEnum = "staged"
 )
 
@@ -116,4 +116,3 @@ func (v *NullableWritableVirtualMachineWithConfigContextStatusEnum) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

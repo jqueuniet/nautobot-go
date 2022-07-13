@@ -19,12 +19,12 @@ import (
 type WritablePowerFeedStatusEnum string
 
 // List of WritablePowerFeedStatusEnum
-const (
-	ACTIVE WritablePowerFeedStatusEnum = "active"
-	FAILED WritablePowerFeedStatusEnum = "failed"
-	OFFLINE WritablePowerFeedStatusEnum = "offline"
-	PLANNED WritablePowerFeedStatusEnum = "planned"
-)
+//const (
+//	ACTIVE WritablePowerFeedStatusEnum = "active"
+//	FAILED WritablePowerFeedStatusEnum = "failed"
+//	OFFLINE WritablePowerFeedStatusEnum = "offline"
+//	PLANNED WritablePowerFeedStatusEnum = "planned"
+//)
 
 // All allowed values of WritablePowerFeedStatusEnum enum
 var AllowedWritablePowerFeedStatusEnumEnumValues = []WritablePowerFeedStatusEnum{
@@ -112,4 +112,3 @@ func (v *NullableWritablePowerFeedStatusEnum) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

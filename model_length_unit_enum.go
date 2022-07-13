@@ -20,10 +20,10 @@ type LengthUnitEnum string
 
 // List of LengthUnitEnum
 const (
-	M LengthUnitEnum = "m"
+	M  LengthUnitEnum = "m"
 	CM LengthUnitEnum = "cm"
 	FT LengthUnitEnum = "ft"
-	IN LengthUnitEnum = "in"
+	//IN LengthUnitEnum = "in"
 )
 
 // All allowed values of LengthUnitEnum enum
@@ -112,4 +112,3 @@ func (v *NullableLengthUnitEnum) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

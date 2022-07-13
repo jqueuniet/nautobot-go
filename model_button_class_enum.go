@@ -20,13 +20,13 @@ type ButtonClassEnum string
 
 // List of ButtonClassEnum
 const (
-	DEFAULT ButtonClassEnum = "default"
-	PRIMARY ButtonClassEnum = "primary"
-	SUCCESS ButtonClassEnum = "success"
-	INFO ButtonClassEnum = "info"
-	WARNING ButtonClassEnum = "warning"
+	//DEFAULT ButtonClassEnum = "default"
+	//PRIMARY ButtonClassEnum = "primary"
+	//SUCCESS ButtonClassEnum = "success"
+	//INFO ButtonClassEnum = "info"
+	//WARNING ButtonClassEnum = "warning"
 	DANGER ButtonClassEnum = "danger"
-	LINK ButtonClassEnum = "link"
+	LINK   ButtonClassEnum = "link"
 )
 
 // All allowed values of ButtonClassEnum enum
@@ -118,4 +118,3 @@ func (v *NullableButtonClassEnum) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,7 +20,7 @@ type FeedLegEnum string
 
 // List of FeedLegEnum
 const (
-	A FeedLegEnum = "A"
+	//A FeedLegEnum = "A"
 	B FeedLegEnum = "B"
 	C FeedLegEnum = "C"
 )
@@ -110,4 +110,3 @@ func (v *NullableFeedLegEnum) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

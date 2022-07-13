@@ -19,11 +19,11 @@ import (
 type WritableVLANStatusEnum string
 
 // List of WritableVLANStatusEnum
-const (
-	ACTIVE WritableVLANStatusEnum = "active"
-	DEPRECATED WritableVLANStatusEnum = "deprecated"
-	RESERVED WritableVLANStatusEnum = "reserved"
-)
+//const (
+//	ACTIVE WritableVLANStatusEnum = "active"
+//	DEPRECATED WritableVLANStatusEnum = "deprecated"
+//	RESERVED WritableVLANStatusEnum = "reserved"
+//)
 
 // All allowed values of WritableVLANStatusEnum enum
 var AllowedWritableVLANStatusEnumEnumValues = []WritableVLANStatusEnum{
@@ -110,4 +110,3 @@ func (v *NullableWritableVLANStatusEnum) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

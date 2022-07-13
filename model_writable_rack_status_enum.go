@@ -20,11 +20,11 @@ type WritableRackStatusEnum string
 
 // List of WritableRackStatusEnum
 const (
-	ACTIVE WritableRackStatusEnum = "active"
+	//ACTIVE WritableRackStatusEnum = "active"
 	AVAILABLE WritableRackStatusEnum = "available"
-	DEPRECATED WritableRackStatusEnum = "deprecated"
-	PLANNED WritableRackStatusEnum = "planned"
-	RESERVED WritableRackStatusEnum = "reserved"
+	//DEPRECATED WritableRackStatusEnum = "deprecated"
+	//PLANNED WritableRackStatusEnum = "planned"
+	//RESERVED WritableRackStatusEnum = "reserved"
 )
 
 // All allowed values of WritableRackStatusEnum enum
@@ -114,4 +114,3 @@ func (v *NullableWritableRackStatusEnum) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
