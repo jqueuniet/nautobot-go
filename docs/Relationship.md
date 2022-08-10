@@ -13,11 +13,11 @@ Name | Type | Description | Notes
 **SourceType** | **string** |  | 
 **SourceLabel** | Pointer to **string** | Label for related destination objects, as displayed on the source object. | [optional] 
 **SourceHidden** | Pointer to **bool** | Hide this relationship on the source object. | [optional] 
-**SourceFilter** | Pointer to **map[string]interface{}** | Queryset filter matching the applicable source objects of the selected type | [optional] 
+**SourceFilter** | Pointer to **map[string]interface{}** | Filterset filter matching the applicable source objects of the selected type | [optional] 
 **DestinationType** | **string** |  | 
 **DestinationLabel** | Pointer to **string** | Label for related source objects, as displayed on the destination object. | [optional] 
 **DestinationHidden** | Pointer to **bool** | Hide this relationship on the destination object. | [optional] 
-**DestinationFilter** | Pointer to **map[string]interface{}** | Queryset filter matching the applicable destination objects of the selected type | [optional] 
+**DestinationFilter** | Pointer to **map[string]interface{}** | Filterset filter matching the applicable destination objects of the selected type | [optional] 
 
 ## Methods
 

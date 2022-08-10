@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **ApprovedByUser** | [**JobResultUser**](JobResultUser.md) |  | 
 **ApprovalRequired** | Pointer to **bool** |  | [optional] 
 **ApprovedAt** | **time.Time** | Datetime that the schedule was approved | [readonly] 
+**Crontab** | Pointer to **string** | Cronjob syntax string for custom scheduling | [optional] 
 
 ## Methods
 
@@ -384,6 +385,31 @@ and a boolean to check if the value has been set.
 
 SetApprovedAt sets ApprovedAt field to given value.
 
+
+### GetCrontab
+
+`func (o *ScheduledJob) GetCrontab() string`
+
+GetCrontab returns the Crontab field if non-nil, zero value otherwise.
+
+### GetCrontabOk
+
+`func (o *ScheduledJob) GetCrontabOk() (*string, bool)`
+
+GetCrontabOk returns a tuple with the Crontab field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCrontab
+
+`func (o *ScheduledJob) SetCrontab(v string)`
+
+SetCrontab sets Crontab field to given value.
+
+### HasCrontab
+
+`func (o *ScheduledJob) HasCrontab() bool`
+
+HasCrontab returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

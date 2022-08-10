@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Family** | [**AggregateFamily**](AggregateFamily.md) |  | 
 **Prefix** | **string** |  | 
 **Site** | Pointer to [**NullableCircuitTerminationSite**](CircuitTerminationSite.md) |  | [optional] 
-**Vrf** | Pointer to [**NullableIPAddressSerializerLegacyVrf**](IPAddressSerializerLegacyVrf.md) |  | [optional] 
+**Vrf** | Pointer to [**NullableIPAddressVrf**](IPAddressVrf.md) |  | [optional] 
 **Tenant** | Pointer to [**NullableAggregateTenant**](AggregateTenant.md) |  | [optional] 
 **Vlan** | Pointer to [**NullableInterfaceUntaggedVlan**](InterfaceUntaggedVlan.md) |  | [optional] 
 **Status** | [**PrefixStatus**](PrefixStatus.md) |  | 
@@ -158,20 +158,20 @@ HasSite returns a boolean if a field has been set.
 UnsetSite ensures that no value is present for Site, not even an explicit nil
 ### GetVrf
 
-`func (o *Prefix) GetVrf() IPAddressSerializerLegacyVrf`
+`func (o *Prefix) GetVrf() IPAddressVrf`
 
 GetVrf returns the Vrf field if non-nil, zero value otherwise.
 
 ### GetVrfOk
 
-`func (o *Prefix) GetVrfOk() (*IPAddressSerializerLegacyVrf, bool)`
+`func (o *Prefix) GetVrfOk() (*IPAddressVrf, bool)`
 
 GetVrfOk returns a tuple with the Vrf field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVrf
 
-`func (o *Prefix) SetVrf(v IPAddressSerializerLegacyVrf)`
+`func (o *Prefix) SetVrf(v IPAddressVrf)`
 
 SetVrf sets Vrf field to given value.
 

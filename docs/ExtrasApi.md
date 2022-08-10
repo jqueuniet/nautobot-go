@@ -1,6 +1,6 @@
 # \ExtrasApi
 
-All URIs are relative to */api*
+All URIs are relative to *http://localhost:8000/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10974,7 +10974,7 @@ Name | Type | Description  | Notes
 
 ## ExtrasRelationshipAssociationsList
 
-> PaginatedRelationshipAssociationList ExtrasRelationshipAssociationsList(ctx).DestinationId(destinationId).DestinationIdIc(destinationIdIc).DestinationIdIe(destinationIdIe).DestinationIdIew(destinationIdIew).DestinationIdIre(destinationIdIre).DestinationIdIsw(destinationIdIsw).DestinationIdN(destinationIdN).DestinationIdNic(destinationIdNic).DestinationIdNie(destinationIdNie).DestinationIdNiew(destinationIdNiew).DestinationIdNire(destinationIdNire).DestinationIdNisw(destinationIdNisw).DestinationIdNre(destinationIdNre).DestinationIdRe(destinationIdRe).DestinationType(destinationType).DestinationTypeN(destinationTypeN).Id(id).IdIc(idIc).IdIe(idIe).IdIew(idIew).IdIre(idIre).IdIsw(idIsw).IdN(idN).IdNic(idNic).IdNie(idNie).IdNiew(idNiew).IdNire(idNire).IdNisw(idNisw).IdNre(idNre).IdRe(idRe).Limit(limit).Offset(offset).Relationship(relationship).RelationshipN(relationshipN).SourceId(sourceId).SourceIdIc(sourceIdIc).SourceIdIe(sourceIdIe).SourceIdIew(sourceIdIew).SourceIdIre(sourceIdIre).SourceIdIsw(sourceIdIsw).SourceIdN(sourceIdN).SourceIdNic(sourceIdNic).SourceIdNie(sourceIdNie).SourceIdNiew(sourceIdNiew).SourceIdNire(sourceIdNire).SourceIdNisw(sourceIdNisw).SourceIdNre(sourceIdNre).SourceIdRe(sourceIdRe).SourceType(sourceType).SourceTypeN(sourceTypeN).Execute()
+> PaginatedRelationshipAssociationList ExtrasRelationshipAssociationsList(ctx).DestinationId(destinationId).DestinationIdIc(destinationIdIc).DestinationIdIe(destinationIdIe).DestinationIdIew(destinationIdIew).DestinationIdIre(destinationIdIre).DestinationIdIsw(destinationIdIsw).DestinationIdN(destinationIdN).DestinationIdNic(destinationIdNic).DestinationIdNie(destinationIdNie).DestinationIdNiew(destinationIdNiew).DestinationIdNire(destinationIdNire).DestinationIdNisw(destinationIdNisw).DestinationIdNre(destinationIdNre).DestinationIdRe(destinationIdRe).DestinationType(destinationType).DestinationTypeN(destinationTypeN).Id(id).IdIc(idIc).IdIe(idIe).IdIew(idIew).IdIre(idIre).IdIsw(idIsw).IdN(idN).IdNic(idNic).IdNie(idNie).IdNiew(idNiew).IdNire(idNire).IdNisw(idNisw).IdNre(idNre).IdRe(idRe).Limit(limit).Offset(offset).PeerId(peerId).Relationship(relationship).RelationshipN(relationshipN).SourceId(sourceId).SourceIdIc(sourceIdIc).SourceIdIe(sourceIdIe).SourceIdIew(sourceIdIew).SourceIdIre(sourceIdIre).SourceIdIsw(sourceIdIsw).SourceIdN(sourceIdN).SourceIdNic(sourceIdNic).SourceIdNie(sourceIdNie).SourceIdNiew(sourceIdNiew).SourceIdNire(sourceIdNire).SourceIdNisw(sourceIdNisw).SourceIdNre(sourceIdNre).SourceIdRe(sourceIdRe).SourceType(sourceType).SourceTypeN(sourceTypeN).Execute()
 
 
 
@@ -11025,6 +11025,7 @@ func main() {
     idRe := []string{"Inner_example"} // []string |  (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+    peerId := []string{"Inner_example"} // []string |  (optional)
     relationship := []string{"Inner_example"} // []string | Relationship (slug) (optional)
     relationshipN := []string{"Inner_example"} // []string | Relationship (slug) (optional)
     sourceId := []string{"Inner_example"} // []string |  (optional)
@@ -11046,7 +11047,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ExtrasApi.ExtrasRelationshipAssociationsList(context.Background()).DestinationId(destinationId).DestinationIdIc(destinationIdIc).DestinationIdIe(destinationIdIe).DestinationIdIew(destinationIdIew).DestinationIdIre(destinationIdIre).DestinationIdIsw(destinationIdIsw).DestinationIdN(destinationIdN).DestinationIdNic(destinationIdNic).DestinationIdNie(destinationIdNie).DestinationIdNiew(destinationIdNiew).DestinationIdNire(destinationIdNire).DestinationIdNisw(destinationIdNisw).DestinationIdNre(destinationIdNre).DestinationIdRe(destinationIdRe).DestinationType(destinationType).DestinationTypeN(destinationTypeN).Id(id).IdIc(idIc).IdIe(idIe).IdIew(idIew).IdIre(idIre).IdIsw(idIsw).IdN(idN).IdNic(idNic).IdNie(idNie).IdNiew(idNiew).IdNire(idNire).IdNisw(idNisw).IdNre(idNre).IdRe(idRe).Limit(limit).Offset(offset).Relationship(relationship).RelationshipN(relationshipN).SourceId(sourceId).SourceIdIc(sourceIdIc).SourceIdIe(sourceIdIe).SourceIdIew(sourceIdIew).SourceIdIre(sourceIdIre).SourceIdIsw(sourceIdIsw).SourceIdN(sourceIdN).SourceIdNic(sourceIdNic).SourceIdNie(sourceIdNie).SourceIdNiew(sourceIdNiew).SourceIdNire(sourceIdNire).SourceIdNisw(sourceIdNisw).SourceIdNre(sourceIdNre).SourceIdRe(sourceIdRe).SourceType(sourceType).SourceTypeN(sourceTypeN).Execute()
+    resp, r, err := apiClient.ExtrasApi.ExtrasRelationshipAssociationsList(context.Background()).DestinationId(destinationId).DestinationIdIc(destinationIdIc).DestinationIdIe(destinationIdIe).DestinationIdIew(destinationIdIew).DestinationIdIre(destinationIdIre).DestinationIdIsw(destinationIdIsw).DestinationIdN(destinationIdN).DestinationIdNic(destinationIdNic).DestinationIdNie(destinationIdNie).DestinationIdNiew(destinationIdNiew).DestinationIdNire(destinationIdNire).DestinationIdNisw(destinationIdNisw).DestinationIdNre(destinationIdNre).DestinationIdRe(destinationIdRe).DestinationType(destinationType).DestinationTypeN(destinationTypeN).Id(id).IdIc(idIc).IdIe(idIe).IdIew(idIew).IdIre(idIre).IdIsw(idIsw).IdN(idN).IdNic(idNic).IdNie(idNie).IdNiew(idNiew).IdNire(idNire).IdNisw(idNisw).IdNre(idNre).IdRe(idRe).Limit(limit).Offset(offset).PeerId(peerId).Relationship(relationship).RelationshipN(relationshipN).SourceId(sourceId).SourceIdIc(sourceIdIc).SourceIdIe(sourceIdIe).SourceIdIew(sourceIdIew).SourceIdIre(sourceIdIre).SourceIdIsw(sourceIdIsw).SourceIdN(sourceIdN).SourceIdNic(sourceIdNic).SourceIdNie(sourceIdNie).SourceIdNiew(sourceIdNiew).SourceIdNire(sourceIdNire).SourceIdNisw(sourceIdNisw).SourceIdNre(sourceIdNre).SourceIdRe(sourceIdRe).SourceType(sourceType).SourceTypeN(sourceTypeN).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ExtrasApi.ExtrasRelationshipAssociationsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -11099,6 +11100,7 @@ Name | Type | Description  | Notes
  **idRe** | **[]string** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **peerId** | **[]string** |  | 
  **relationship** | **[]string** | Relationship (slug) | 
  **relationshipN** | **[]string** | Relationship (slug) | 
  **sourceId** | **[]string** |  | 

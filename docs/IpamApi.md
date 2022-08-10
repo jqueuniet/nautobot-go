@@ -1,6 +1,6 @@
 # \IpamApi
 
-All URIs are relative to */api*
+All URIs are relative to *http://localhost:8000/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -1852,7 +1852,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesAvailableIpsCreate
 
-> PaginatedAvailableIPList IpamPrefixesAvailableIpsCreate(ctx, id).AvailableIP(availableIP).Limit(limit).Offset(offset).Execute()
+> IPAddress IpamPrefixesAvailableIpsCreate(ctx, id).AvailableIPAddressRequest(availableIPAddressRequest).Execute()
 
 
 
@@ -1872,18 +1872,16 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | A UUID string identifying this IP address.
-    availableIP := []openapiclient.AvailableIP{*openapiclient.NewAvailableIP(int32(123), "Address_example", *openapiclient.NewAvailableIPVrf("Id_example", "Url_example", "Name_example", "Display_example", int32(123)))} // []AvailableIP | 
-    limit := int32(56) // int32 | Number of results to return per page. (optional)
-    offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+    availableIPAddressRequest := *openapiclient.NewAvailableIPAddressRequest(openapiclient.IPAddressStatusChoices("active")) // AvailableIPAddressRequest | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IpamApi.IpamPrefixesAvailableIpsCreate(context.Background(), id).AvailableIP(availableIP).Limit(limit).Offset(offset).Execute()
+    resp, r, err := apiClient.IpamApi.IpamPrefixesAvailableIpsCreate(context.Background(), id).AvailableIPAddressRequest(availableIPAddressRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IpamApi.IpamPrefixesAvailableIpsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `IpamPrefixesAvailableIpsCreate`: PaginatedAvailableIPList
+    // response from `IpamPrefixesAvailableIpsCreate`: IPAddress
     fmt.Fprintf(os.Stdout, "Response from `IpamApi.IpamPrefixesAvailableIpsCreate`: %v\n", resp)
 }
 ```
@@ -1904,13 +1902,11 @@ Other parameters are passed through a pointer to a apiIpamPrefixesAvailableIpsCr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **availableIP** | [**[]AvailableIP**](AvailableIP.md) |  | 
- **limit** | **int32** | Number of results to return per page. | 
- **offset** | **int32** | The initial index from which to return the results. | 
+ **availableIPAddressRequest** | [**AvailableIPAddressRequest**](AvailableIPAddressRequest.md) |  | 
 
 ### Return type
 
-[**PaginatedAvailableIPList**](PaginatedAvailableIPList.md)
+[**IPAddress**](IPAddress.md)
 
 ### Authorization
 
@@ -2002,7 +1998,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesAvailablePrefixesCreate
 
-> Prefix IpamPrefixesAvailablePrefixesCreate(ctx, id).PrefixLength(prefixLength).Execute()
+> Prefix IpamPrefixesAvailablePrefixesCreate(ctx, id).AvailablePrefixRequest(availablePrefixRequest).Execute()
 
 
 
@@ -2022,11 +2018,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | A UUID string identifying this prefix.
-    prefixLength := *openapiclient.NewPrefixLength(int32(123)) // PrefixLength | 
+    availablePrefixRequest := *openapiclient.NewAvailablePrefixRequest(int32(123), openapiclient.AvailablePrefixRequestStatusEnum("container")) // AvailablePrefixRequest | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IpamApi.IpamPrefixesAvailablePrefixesCreate(context.Background(), id).PrefixLength(prefixLength).Execute()
+    resp, r, err := apiClient.IpamApi.IpamPrefixesAvailablePrefixesCreate(context.Background(), id).AvailablePrefixRequest(availablePrefixRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IpamApi.IpamPrefixesAvailablePrefixesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2052,7 +2048,7 @@ Other parameters are passed through a pointer to a apiIpamPrefixesAvailablePrefi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **prefixLength** | [**PrefixLength**](PrefixLength.md) |  | 
+ **availablePrefixRequest** | [**AvailablePrefixRequest**](AvailablePrefixRequest.md) |  | 
 
 ### Return type
 

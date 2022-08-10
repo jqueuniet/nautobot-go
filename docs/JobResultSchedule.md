@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **StartTime** | Pointer to **time.Time** |  | [optional] 
 **Interval** | [**IntervalEnum**](IntervalEnum.md) |  | 
+**Crontab** | Pointer to **string** | Cronjob syntax string for custom scheduling | [optional] 
 
 ## Methods
 
@@ -96,6 +97,31 @@ and a boolean to check if the value has been set.
 
 SetInterval sets Interval field to given value.
 
+
+### GetCrontab
+
+`func (o *JobResultSchedule) GetCrontab() string`
+
+GetCrontab returns the Crontab field if non-nil, zero value otherwise.
+
+### GetCrontabOk
+
+`func (o *JobResultSchedule) GetCrontabOk() (*string, bool)`
+
+GetCrontabOk returns a tuple with the Crontab field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCrontab
+
+`func (o *JobResultSchedule) SetCrontab(v string)`
+
+SetCrontab sets Crontab field to given value.
+
+### HasCrontab
+
+`func (o *JobResultSchedule) HasCrontab() bool`
+
+HasCrontab returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

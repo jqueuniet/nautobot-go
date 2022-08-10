@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **DescriptionOverride** | Pointer to **bool** | If set, the configured description will remain even if the underlying Job source code changes | [optional] 
 **Installed** | Pointer to **bool** | Whether the Python module and class providing this job are presently installed and loadable | [optional] [readonly] 
 **Enabled** | Pointer to **bool** | Whether this job can be executed by users | [optional] 
+**HasSensitiveVariables** | Pointer to **bool** | Whether this job contains sensitive variables | [optional] 
+**HasSensitiveVariablesOverride** | Pointer to **bool** | If set, the configured value will remain even if the underlying Job source code changes | [optional] 
 **ApprovalRequired** | Pointer to **bool** | Whether the job requires approval from another user before running | [optional] 
 **ApprovalRequiredOverride** | Pointer to **bool** | If set, the configured value will remain even if the underlying Job source code changes | [optional] 
 **CommitDefault** | Pointer to **bool** | Whether the job defaults to committing changes when run, or defaults to a dry-run | [optional] 
@@ -404,6 +406,56 @@ SetEnabled sets Enabled field to given value.
 `func (o *PatchedJob) HasEnabled() bool`
 
 HasEnabled returns a boolean if a field has been set.
+
+### GetHasSensitiveVariables
+
+`func (o *PatchedJob) GetHasSensitiveVariables() bool`
+
+GetHasSensitiveVariables returns the HasSensitiveVariables field if non-nil, zero value otherwise.
+
+### GetHasSensitiveVariablesOk
+
+`func (o *PatchedJob) GetHasSensitiveVariablesOk() (*bool, bool)`
+
+GetHasSensitiveVariablesOk returns a tuple with the HasSensitiveVariables field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasSensitiveVariables
+
+`func (o *PatchedJob) SetHasSensitiveVariables(v bool)`
+
+SetHasSensitiveVariables sets HasSensitiveVariables field to given value.
+
+### HasHasSensitiveVariables
+
+`func (o *PatchedJob) HasHasSensitiveVariables() bool`
+
+HasHasSensitiveVariables returns a boolean if a field has been set.
+
+### GetHasSensitiveVariablesOverride
+
+`func (o *PatchedJob) GetHasSensitiveVariablesOverride() bool`
+
+GetHasSensitiveVariablesOverride returns the HasSensitiveVariablesOverride field if non-nil, zero value otherwise.
+
+### GetHasSensitiveVariablesOverrideOk
+
+`func (o *PatchedJob) GetHasSensitiveVariablesOverrideOk() (*bool, bool)`
+
+GetHasSensitiveVariablesOverrideOk returns a tuple with the HasSensitiveVariablesOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasSensitiveVariablesOverride
+
+`func (o *PatchedJob) SetHasSensitiveVariablesOverride(v bool)`
+
+SetHasSensitiveVariablesOverride sets HasSensitiveVariablesOverride field to given value.
+
+### HasHasSensitiveVariablesOverride
+
+`func (o *PatchedJob) HasHasSensitiveVariablesOverride() bool`
+
+HasHasSensitiveVariablesOverride returns a boolean if a field has been set.
 
 ### GetApprovalRequired
 

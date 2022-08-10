@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **Url** | **string** |  | [readonly] 
 **Family** | [**AggregateFamily**](AggregateFamily.md) |  | 
 **Address** | **string** |  | 
-**Vrf** | Pointer to [**NullableIPAddressSerializerLegacyVrf**](IPAddressSerializerLegacyVrf.md) |  | [optional] 
+**Vrf** | Pointer to [**NullableIPAddressVrf**](IPAddressVrf.md) |  | [optional] 
 **Tenant** | Pointer to [**NullableAggregateTenant**](AggregateTenant.md) |  | [optional] 
-**Status** | [**IPAddressSerializerLegacyStatus**](IPAddressSerializerLegacyStatus.md) |  | 
-**Role** | Pointer to [**IPAddressSerializerLegacyRole**](IPAddressSerializerLegacyRole.md) |  | [optional] 
+**Status** | [**IPAddressStatus**](IPAddressStatus.md) |  | 
+**Role** | Pointer to [**IPAddressRole**](IPAddressRole.md) |  | [optional] 
 **AssignedObjectType** | Pointer to **NullableString** |  | [optional] 
 **AssignedObjectId** | Pointer to **NullableString** |  | [optional] 
 **AssignedObject** | **map[string]interface{}** |  | [readonly] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewIPAddressSerializerLegacy
 
-`func NewIPAddressSerializerLegacy(id string, url string, family AggregateFamily, address string, status IPAddressSerializerLegacyStatus, assignedObject map[string]interface{}, natOutside DevicePrimaryIp, created string, lastUpdated time.Time, computedFields map[string]interface{}, display string, ) *IPAddressSerializerLegacy`
+`func NewIPAddressSerializerLegacy(id string, url string, family AggregateFamily, address string, status IPAddressStatus, assignedObject map[string]interface{}, natOutside DevicePrimaryIp, created string, lastUpdated time.Time, computedFields map[string]interface{}, display string, ) *IPAddressSerializerLegacy`
 
 NewIPAddressSerializerLegacy instantiates a new IPAddressSerializerLegacy object
 This constructor will assign default values to properties that have it defined,
@@ -127,20 +127,20 @@ SetAddress sets Address field to given value.
 
 ### GetVrf
 
-`func (o *IPAddressSerializerLegacy) GetVrf() IPAddressSerializerLegacyVrf`
+`func (o *IPAddressSerializerLegacy) GetVrf() IPAddressVrf`
 
 GetVrf returns the Vrf field if non-nil, zero value otherwise.
 
 ### GetVrfOk
 
-`func (o *IPAddressSerializerLegacy) GetVrfOk() (*IPAddressSerializerLegacyVrf, bool)`
+`func (o *IPAddressSerializerLegacy) GetVrfOk() (*IPAddressVrf, bool)`
 
 GetVrfOk returns a tuple with the Vrf field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVrf
 
-`func (o *IPAddressSerializerLegacy) SetVrf(v IPAddressSerializerLegacyVrf)`
+`func (o *IPAddressSerializerLegacy) SetVrf(v IPAddressVrf)`
 
 SetVrf sets Vrf field to given value.
 
@@ -197,40 +197,40 @@ HasTenant returns a boolean if a field has been set.
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetStatus
 
-`func (o *IPAddressSerializerLegacy) GetStatus() IPAddressSerializerLegacyStatus`
+`func (o *IPAddressSerializerLegacy) GetStatus() IPAddressStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *IPAddressSerializerLegacy) GetStatusOk() (*IPAddressSerializerLegacyStatus, bool)`
+`func (o *IPAddressSerializerLegacy) GetStatusOk() (*IPAddressStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *IPAddressSerializerLegacy) SetStatus(v IPAddressSerializerLegacyStatus)`
+`func (o *IPAddressSerializerLegacy) SetStatus(v IPAddressStatus)`
 
 SetStatus sets Status field to given value.
 
 
 ### GetRole
 
-`func (o *IPAddressSerializerLegacy) GetRole() IPAddressSerializerLegacyRole`
+`func (o *IPAddressSerializerLegacy) GetRole() IPAddressRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *IPAddressSerializerLegacy) GetRoleOk() (*IPAddressSerializerLegacyRole, bool)`
+`func (o *IPAddressSerializerLegacy) GetRoleOk() (*IPAddressRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *IPAddressSerializerLegacy) SetRole(v IPAddressSerializerLegacyRole)`
+`func (o *IPAddressSerializerLegacy) SetRole(v IPAddressRole)`
 
 SetRole sets Role field to given value.
 

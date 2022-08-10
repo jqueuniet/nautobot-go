@@ -1,6 +1,6 @@
 # \GraphqlApi
 
-All URIs are relative to */api*
+All URIs are relative to *http://localhost:8000/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

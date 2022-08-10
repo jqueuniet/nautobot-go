@@ -4,9 +4,9 @@ info:
   license:
     name: Apache v2 License
   title: API Documentation
-  version: 1.3.7 (1.2)
+  version: 1.3.10b1 (1.2)
 servers:
-- url: /api
+- url: http://localhost:8000/api
 paths:
   /circuits/circuit-terminations/:
     delete:
@@ -45240,6 +45240,16 @@ paths:
         schema:
           type: integer
         style: form
+      - explode: true
+        in: query
+        name: peer_id
+        required: false
+        schema:
+          items:
+            format: uuid
+            type: string
+          type: array
+        style: form
       - description: Relationship (slug)
         explode: true
         in: query
@@ -56263,46 +56273,24 @@ paths:
           format: uuid
           type: string
         style: simple
-      - description: Number of results to return per page.
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: The initial index from which to return the results.
-        explode: true
-        in: query
-        name: offset
-        required: false
-        schema:
-          type: integer
-        style: form
       requestBody:
         content:
           application/json:
             schema:
-              items:
-                $ref: '#/components/schemas/AvailableIP'
-              type: array
+              $ref: '#/components/schemas/AvailableIPAddressRequest'
           application/x-www-form-urlencoded:
             schema:
-              items:
-                $ref: '#/components/schemas/AvailableIP'
-              type: array
+              $ref: '#/components/schemas/AvailableIPAddressRequest'
           multipart/form-data:
             schema:
-              items:
-                $ref: '#/components/schemas/AvailableIP'
-              type: array
+              $ref: '#/components/schemas/AvailableIPAddressRequest'
         required: true
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedAvailableIPList'
+                $ref: '#/components/schemas/IPAddress'
           description: ""
       security:
       - cookieAuth: []
@@ -56374,13 +56362,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PrefixLength'
+              $ref: '#/components/schemas/AvailablePrefixRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PrefixLength'
+              $ref: '#/components/schemas/AvailablePrefixRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PrefixLength'
+              $ref: '#/components/schemas/AvailablePrefixRequest'
         required: true
       responses:
         "201":
@@ -71726,6 +71714,16 @@ components:
       - family
       - vrf
       type: object
+    AvailableIPAddressRequest:
+      description: Mixin to add `status` choice field to model serializers.
+      example:
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/IPAddressStatusChoices'
+      required:
+      - status
+      type: object
     AvailablePrefix:
       description: Representation of a prefix which does not exist in the database.
       example:
@@ -71746,6 +71744,26 @@ components:
       - prefix
       - vrf
       type: object
+    AvailablePrefixRequest:
+      example:
+        prefix_length: 0
+        status: null
+      properties:
+        prefix_length:
+          type: integer
+        status:
+          $ref: '#/components/schemas/AvailablePrefixRequestStatusEnum'
+      required:
+      - prefix_length
+      - status
+      type: object
+    AvailablePrefixRequestStatusEnum:
+      enum:
+      - container
+      - active
+      - reserved
+      - deprecated
+      type: string
     BlankEnum:
       enum:
       - ""
@@ -74755,6 +74773,145 @@ components:
       - PATCH
       - DELETE
       type: string
+    IPAddress:
+      description: Mixin to add `status` choice field to model serializers.
+      example:
+        last_updated: 2000-01-23T04:56:07.000+00:00
+        address: address
+        role:
+          label: Loopback
+          value: loopback
+        assigned_object:
+          key: ""
+        custom_fields:
+          key: ""
+        created: 2000-01-23
+        display: display
+        description: description
+        assigned_object_type: assigned_object_type
+        vrf: null
+        assigned_object_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        url: https://openapi-generator.tech
+        dns_name: dns_name
+        tags:
+        - color: color
+          display: display
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          url: https://openapi-generator.tech
+          slug: slug
+        - color: color
+          display: display
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          url: https://openapi-generator.tech
+          slug: slug
+        computed_fields:
+          key: ""
+        nat_outside:
+        - address: address
+          display: display
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          family: 0
+          url: https://openapi-generator.tech
+        - address: address
+          display: display
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          family: 0
+          url: https://openapi-generator.tech
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        family:
+          label: IPv4
+          value: 0
+        tenant: null
+        status:
+          label: Active
+          value: active
+        nat_inside: null
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        url:
+          format: uri
+          readOnly: true
+          type: string
+        family:
+          $ref: '#/components/schemas/Aggregate_family'
+        address:
+          type: string
+        vrf:
+          $ref: '#/components/schemas/IPAddress_vrf'
+        tenant:
+          $ref: '#/components/schemas/Aggregate_tenant'
+        status:
+          $ref: '#/components/schemas/IPAddress_status'
+        role:
+          $ref: '#/components/schemas/IPAddress_role'
+        assigned_object_type:
+          nullable: true
+          type: string
+        assigned_object_id:
+          format: uuid
+          nullable: true
+          type: string
+        assigned_object:
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+          type: object
+        nat_inside:
+          $ref: '#/components/schemas/Device_primary_ip4'
+        nat_outside:
+          items:
+            $ref: '#/components/schemas/NestedIPAddress'
+          readOnly: true
+          type: array
+        dns_name:
+          description: Hostname or FQDN (not case-sensitive)
+          maxLength: 255
+          pattern: "^[0-9A-Za-z._-]+$"
+          type: string
+        description:
+          maxLength: 200
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/TagSerializerField'
+          type: array
+        custom_fields:
+          additionalProperties: {}
+          type: object
+        created:
+          format: date
+          readOnly: true
+          type: string
+        last_updated:
+          format: date-time
+          readOnly: true
+          type: string
+        computed_fields:
+          additionalProperties: {}
+          readOnly: true
+          type: object
+        display:
+          description: Human friendly display value
+          readOnly: true
+          type: string
+      required:
+      - address
+      - assigned_object
+      - computed_fields
+      - created
+      - display
+      - family
+      - id
+      - last_updated
+      - nat_outside
+      - status
+      - url
+      type: object
     IPAddressSerializerLegacy:
       description: Mixin to add `status` choice field to model serializers.
       example:
@@ -74814,13 +74971,13 @@ components:
         address:
           type: string
         vrf:
-          $ref: '#/components/schemas/IPAddressSerializerLegacy_vrf'
+          $ref: '#/components/schemas/IPAddress_vrf'
         tenant:
           $ref: '#/components/schemas/Aggregate_tenant'
         status:
-          $ref: '#/components/schemas/IPAddressSerializerLegacy_status'
+          $ref: '#/components/schemas/IPAddress_status'
         role:
-          $ref: '#/components/schemas/IPAddressSerializerLegacy_role'
+          $ref: '#/components/schemas/IPAddress_role'
         assigned_object_type:
           nullable: true
           type: string
@@ -74881,6 +75038,14 @@ components:
       - status
       - url
       type: object
+    IPAddressStatusChoices:
+      enum:
+      - active
+      - reserved
+      - deprecated
+      - dhcp
+      - slaac
+      type: string
     ImageAttachment:
       description: |-
         Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during
@@ -75295,6 +75460,7 @@ components:
       - hourly
       - daily
       - weekly
+      - custom
       type: string
     InventoryItem:
       description: Extends ModelSerializer to render any CustomFields and their values
@@ -75409,10 +75575,12 @@ components:
         grouping_override: true
         hidden: true
         time_limit: 0.6027456183070403
+        has_sensitive_variables: true
         description: description
         source: source
         approval_required_override: true
         enabled: true
+        has_sensitive_variables_override: true
         read_only: true
         soft_time_limit_override: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -75503,6 +75671,13 @@ components:
           type: boolean
         enabled:
           description: Whether this job can be executed by users
+          type: boolean
+        has_sensitive_variables:
+          description: Whether this job contains sensitive variables
+          type: boolean
+        has_sensitive_variables_override:
+          description: "If set, the configured value will remain even if the underlying\
+            \ Job source code changes"
           type: boolean
         approval_required:
           description: Whether the job requires approval from another user before
@@ -75723,6 +75898,7 @@ components:
       example:
         schedule:
           start_time: 2000-01-23T04:56:07.000+00:00
+          crontab: crontab
           name: name
           interval: null
         data:
@@ -77121,6 +77297,7 @@ components:
     NestedScheduledJob:
       example:
         start_time: 2000-01-23T04:56:07.000+00:00
+        crontab: crontab
         name: name
         interval: null
       properties:
@@ -77132,6 +77309,11 @@ components:
           type: string
         interval:
           $ref: '#/components/schemas/IntervalEnum'
+        crontab:
+          description: Cronjob syntax string for custom scheduling
+          maxLength: 255
+          title: Custom cronjob
+          type: string
       required:
       - interval
       type: object
@@ -82857,6 +83039,7 @@ components:
         results:
         - last_run_at: 2000-01-23T04:56:07.000+00:00
           approved_by_user: null
+          crontab: crontab
           approval_required: true
           description: description
           job_class: job_class
@@ -82873,6 +83056,7 @@ components:
           queue: queue
         - last_run_at: 2000-01-23T04:56:07.000+00:00
           approved_by_user: null
+          crontab: crontab
           approval_required: true
           description: description
           job_class: job_class
@@ -84986,10 +85170,12 @@ components:
         grouping_override: true
         hidden: true
         time_limit: 0.6027456183070403
+        has_sensitive_variables: true
         description: description
         source: source
         approval_required_override: true
         enabled: true
+        has_sensitive_variables_override: true
         read_only: true
         soft_time_limit_override: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -85080,6 +85266,13 @@ components:
           type: boolean
         enabled:
           description: Whether this job can be executed by users
+          type: boolean
+        has_sensitive_variables:
+          description: Whether this job contains sensitive variables
+          type: boolean
+        has_sensitive_variables_override:
+          description: "If set, the configured value will remain even if the underlying\
+            \ Job source code changes"
           type: boolean
         approval_required:
           description: Whether the job requires approval from another user before
@@ -85533,8 +85726,8 @@ components:
           type: boolean
         source_filter:
           additionalProperties: {}
-          description: Queryset filter matching the applicable source objects of the
-            selected type
+          description: Filterset filter matching the applicable source objects of
+            the selected type
           nullable: true
           type: object
         destination_type:
@@ -85550,7 +85743,7 @@ components:
           type: boolean
         destination_filter:
           additionalProperties: {}
-          description: Queryset filter matching the applicable destination objects
+          description: Filterset filter matching the applicable destination objects
             of the selected type
           nullable: true
           type: object
@@ -91777,7 +91970,7 @@ components:
         site:
           $ref: '#/components/schemas/CircuitTermination_site'
         vrf:
-          $ref: '#/components/schemas/IPAddressSerializerLegacy_vrf'
+          $ref: '#/components/schemas/IPAddress_vrf'
         tenant:
           $ref: '#/components/schemas/Aggregate_tenant'
         vlan:
@@ -91821,15 +92014,6 @@ components:
       - prefix
       - status
       - url
-      type: object
-    PrefixLength:
-      example:
-        prefix_length: 0
-      properties:
-        prefix_length:
-          type: integer
-      required:
-      - prefix_length
       type: object
     ProtocolEnum:
       enum:
@@ -92812,8 +92996,8 @@ components:
           type: boolean
         source_filter:
           additionalProperties: {}
-          description: Queryset filter matching the applicable source objects of the
-            selected type
+          description: Filterset filter matching the applicable source objects of
+            the selected type
           nullable: true
           type: object
         destination_type:
@@ -92829,7 +93013,7 @@ components:
           type: boolean
         destination_filter:
           additionalProperties: {}
-          description: Queryset filter matching the applicable destination objects
+          description: Filterset filter matching the applicable destination objects
             of the selected type
           nullable: true
           type: object
@@ -93053,6 +93237,7 @@ components:
       example:
         last_run_at: 2000-01-23T04:56:07.000+00:00
         approved_by_user: null
+        crontab: crontab
         approval_required: true
         description: description
         job_class: job_class
@@ -93133,6 +93318,11 @@ components:
           format: date-time
           readOnly: true
           title: Approval date/time
+          type: string
+        crontab:
+          description: Cronjob syntax string for custom scheduling
+          maxLength: 255
+          title: Custom cronjob
           type: string
       required:
       - approved_at
@@ -101003,11 +101193,11 @@ components:
       oneOf:
       - $ref: '#/components/schemas/ProvidedContentsEnum'
       - $ref: '#/components/schemas/BlankEnum'
-    IPAddressSerializerLegacy_vrf:
+    IPAddress_vrf:
       allOf:
       - $ref: '#/components/schemas/NestedVRF'
       nullable: true
-    IPAddressSerializerLegacy_status:
+    IPAddress_status:
       example:
         label: Active
         value: active
@@ -101029,7 +101219,7 @@ components:
           - SLAAC
           type: string
       type: object
-    IPAddressSerializerLegacy_role:
+    IPAddress_role:
       example:
         label: Loopback
         value: loopback
