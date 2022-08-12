@@ -19,13 +19,13 @@ import (
 type IPAddressStatusChoices string
 
 // List of IPAddressStatusChoices
-const (
-	ACTIVE IPAddressStatusChoices = "active"
-	RESERVED IPAddressStatusChoices = "reserved"
-	DEPRECATED IPAddressStatusChoices = "deprecated"
-	DHCP IPAddressStatusChoices = "dhcp"
-	SLAAC IPAddressStatusChoices = "slaac"
-)
+//const (
+//	ACTIVE IPAddressStatusChoices = "active"
+//	RESERVED IPAddressStatusChoices = "reserved"
+//	DEPRECATED IPAddressStatusChoices = "deprecated"
+//	DHCP IPAddressStatusChoices = "dhcp"
+//	SLAAC IPAddressStatusChoices = "slaac"
+//)
 
 // All allowed values of IPAddressStatusChoices enum
 var AllowedIPAddressStatusChoicesEnumValues = []IPAddressStatusChoices{

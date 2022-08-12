@@ -19,12 +19,12 @@ import (
 type AvailablePrefixRequestStatusEnum string
 
 // List of AvailablePrefixRequestStatusEnum
-const (
-	CONTAINER AvailablePrefixRequestStatusEnum = "container"
-	ACTIVE AvailablePrefixRequestStatusEnum = "active"
-	RESERVED AvailablePrefixRequestStatusEnum = "reserved"
-	DEPRECATED AvailablePrefixRequestStatusEnum = "deprecated"
-)
+//const (
+//	CONTAINER AvailablePrefixRequestStatusEnum = "container"
+//	ACTIVE AvailablePrefixRequestStatusEnum = "active"
+//	RESERVED AvailablePrefixRequestStatusEnum = "reserved"
+//	DEPRECATED AvailablePrefixRequestStatusEnum = "deprecated"
+//)
 
 // All allowed values of AvailablePrefixRequestStatusEnum enum
 var AllowedAvailablePrefixRequestStatusEnumEnumValues = []AvailablePrefixRequestStatusEnum{
