@@ -20282,7 +20282,7 @@ func (a *DcimApiService) DcimDevicesListExecute(r ApiDcimDevicesListRequest) (*P
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("cluster_id", parameterToString(s.Index(i), "multi"))
+				localVarQueryParams.Add("cluster_id", parameterToString(s.Index(i).Elem(), "multi"))
 			}
 		} else {
 			localVarQueryParams.Add("cluster_id", parameterToString(t, "multi"))
