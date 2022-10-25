@@ -16,13 +16,13 @@ import (
 
 // TagSerializerField NestedSerializer field for `Tag` object fields.
 type TagSerializerField struct {
-	Id string `json:"id"`
-	Url string `json:"url"`
-	Name string `json:"name"`
-	Slug string `json:"slug"`
+	Id    string  `json:"id"`
+	Url   string  `json:"-"`
+	Name  string  `json:"name"`
+	Slug  string  `json:"slug"`
 	Color *string `json:"color,omitempty"`
 	// Human friendly display value
-	Display string `json:"display"`
+	Display string `json:"-"`
 }
 
 // NewTagSerializerField instantiates a new TagSerializerField object
@@ -205,9 +205,6 @@ func (o TagSerializerField) MarshalJSON() ([]byte, error) {
 		toSerialize["id"] = o.Id
 	}
 	if true {
-		toSerialize["url"] = o.Url
-	}
-	if true {
 		toSerialize["name"] = o.Name
 	}
 	if true {
@@ -215,9 +212,6 @@ func (o TagSerializerField) MarshalJSON() ([]byte, error) {
 	}
 	if o.Color != nil {
 		toSerialize["color"] = o.Color
-	}
-	if true {
-		toSerialize["display"] = o.Display
 	}
 	return json.Marshal(toSerialize)
 }
@@ -257,5 +251,3 @@ func (v *NullableTagSerializerField) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
